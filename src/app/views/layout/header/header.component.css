@@ -18,10 +18,12 @@ img {
 .header-menu {
     display: flex;
     flex-direction: row;
+    font-size: 1rem;
+    color: var(--text-color);
 }
 
 .header-menu>span {
-    padding: 2em;
+    padding: 1.5em;
 }
 
 .mat-toolbar {
