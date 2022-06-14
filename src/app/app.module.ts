@@ -6,6 +6,7 @@ import { SharedModule } from './shared/shared.module';
 import { AngularMaterialModule } from './shared/angular-material.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing.module';
+import { AuthenticationRoutingModule } from './authentication/authentication-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AppRoutingModule } from './app.routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AuthenticationRoutingModule,
     SharedModule,
     AngularMaterialModule
   ],
