@@ -1,1 +1,49 @@
-<mat-toolbar></mat-toolbar>
+<mat-toolbar>
+    <!--<button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggleSidenav()">
+  <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+</button>-->
+    <span class="grpName">
+        <img src="/assets/images/logo.png" alt="">
+    </span>
+    <div class="header-menu">
+        <span>Inicio</span>
+        <span>Levantar reporte</span>
+        <span>Seguros</span>
+    </div>
+    <div class="burger-menu">
+        <button mat-button [matMenuTriggerFor]="miMenu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #miMenu="matMenu">
+            <span mat-menu-item>Inicio</span>
+            <span mat-menu-item>Levantar reporte</span>
+            <span mat-menu-item>Seguros</span>
+        </mat-menu>
+    </div>
+    <!--<span>Almacenes</span>-->
+    <div class="spacer"></div>
+    <div class="user">
+        <div class="dataUser">
+            <span class="workArea"></span>
+            <span></span>
+            <span class="userName"></span>
+        </div>
+        <div class="userActions">
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon class="userIcon">account_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <div class="dataUserMenu">
+                    <span class="workArea"><strong></strong></span>
+                    <span class="userName"></span>
+                    <span class="unidad"><strong></strong></span>
+                    <hr style="width: 100%;">
+                </div>
+                <button mat-menu-item>
+                  <mat-icon>exit_to_app</mat-icon>
+                  <span>Terminar sesión</span>
+              </button>
+            </mat-menu>
+        </div>
+    </div>
+</mat-toolbar>
