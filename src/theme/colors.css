@@ -1,0 +1,46 @@
+:root {
+    --md-primary-50: #f6faf5;
+    --md-primary-100: #e9f3e5;
+    --md-primary-200: #dbebd4;
+    --md-primary-300: #cce3c2;
+    --md-primary-400: #c1ddb5;
+    --md-primary-500: #b6d7a8;
+    --md-primary-600: #afd3a0;
+    --md-primary-700: #a6cd97;
+    --md-primary-800: #9ec78d;
+    --md-primary-900: #8ebe7d;
+    --md-primary-A100: #ffffff;
+    --md-primary-A200: #ffffff;
+    --md-primary-A400: #e7ffde;
+    --md-primary-A700: #d4ffc4;
+    /*Accent*/
+    --md-accent-50: #fefefe;
+    --md-accent-100: #fdfdfd;
+    --md-accent-200: #fbfbfb;
+    --md-accent-300: #f9f9f9;
+    --md-accent-400: #f8f8f8;
+    --md-accent-500: #f7f7f7;
+    --md-accent-600: #f6f6f6;
+    --md-accent-700: #f5f5f5;
+    --md-accent-800: #f3f3f3;
+    --md-accent-900: #f1f1f1;
+    --md-accent-A100: #ffffff;
+    --md-accent-A200: #ffffff;
+    --md-accent-A400: #ffffff;
+    --md-accent-A700: #ffffff;
+    /*Warm*/
+    --md-warn-50: #F3E5E9;
+    --md-warn-100: #E2BDC8;
+    --md-warn-200: #CE92A4;
+    --md-warn-300: #BA6680;
+    --md-warn-400: #AC4564;
+    --md-warn-500: #9D2449;
+    --md-warn-600: #952042;
+    --md-warn-700: #8B1B39;
+    --md-warn-800: #811631;
+    --md-warn-900: #6F0D21;
+    --md-warn-A100: #FFA2B2;
+    --md-warn-A200: #FF6F87;
+    --md-warn-A400: #FF3C5C;
+    --md-warn-A700: #FF2347;
+}

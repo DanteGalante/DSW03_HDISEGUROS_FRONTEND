@@ -5,9 +5,11 @@ import { SharedModule } from '../shared/shared.module';
 import { ViewsRoutingModule } from './views-routing.module';
 import { HomeComponent } from './home.component';
 import { ReportesModule } from './reportes/reportes.module';
+import { HeaderComponent } from './layout/header/header.component';
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
