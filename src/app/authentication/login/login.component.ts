@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -24,8 +25,18 @@ export class LoginComponent implements OnInit {
       this.error = '';
       this.submitEM.emit(this.form.value);
       this.form.reset();
+      Swal.fire(
+        'Exito',
+        'inicio correcto!',
+        'success'
+      )
       this.router.navigate(['hdi/reportes'])
     } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Error al iniciar sesión!'
+      })
       this.error = 'Username or password invalid';
     }
   }

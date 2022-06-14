@@ -1,0 +1,28 @@
+.contenedor {
+    display: flex;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    padding: 1em;
+}
+
+.brand {
+    color: var(--text-color);
+    justify-content: flex-start;
+}
+
+.spacer {
+    flex: 1;
+}
+
+a {
+    cursor: pointer;
+}
+
+.terms {
+    display: flex;
+    justify-content: flex-end;
+    color: var(--text-color);
+    text-decoration-line: underline;
+    margin-right: 2%;
+}

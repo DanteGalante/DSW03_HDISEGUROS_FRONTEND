@@ -32,16 +32,10 @@
             <button mat-button [matMenuTriggerFor]="menu">
               <mat-icon class="userIcon">account_circle</mat-icon>
             </button>
-            <mat-menu #menu="matMenu">
-                <div class="dataUserMenu">
-                    <span class="workArea"><strong></strong></span>
-                    <span class="userName"></span>
-                    <span class="unidad"><strong></strong></span>
-                    <hr style="width: 100%;">
-                </div>
-                <button mat-menu-item>
+            <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item (click)="salir()">
                   <mat-icon>exit_to_app</mat-icon>
-                  <span>Terminar sesión</span>
+                  <span>Cerrar sesión</span>
               </button>
             </mat-menu>
         </div>

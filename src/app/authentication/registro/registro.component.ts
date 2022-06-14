@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
@@ -29,13 +30,27 @@ export class RegistroComponent implements OnInit {
       this.error = '';
       this.submitEM.emit(this.form.value);
       this.form.reset();
+      Swal.fire(
+        'Exito',
+        'Registro guardado con exito!',
+        'success'
+      )
       this.router.navigate(['auth'])
 
     } else {
-      this.error = 'Username or password invalid';
+      Swal.fire(
+        'exit',
+        'Registro cancelado!',
+        'error'
+      )
+      this.error = 'Falta algun dato';
     }
   }
   error!: string | null;
+
+  cancelar(){ 
+     this.router.navigate(['auth'])
+  }
 
   registro(){
     console.log('REgistro entro')

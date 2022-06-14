@@ -7,13 +7,15 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RegistroComponent } from './registro/registro.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,

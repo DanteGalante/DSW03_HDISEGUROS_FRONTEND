@@ -1,0 +1,26 @@
+.main-container {
+    height: 100;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 5%;
+}
+
+.body {
+    position: relative;
+    min-height: 90vh;
+}
+
+.content-wrap {
+    padding-bottom: 6.5rem;
+}
+
+.router {
+    margin: 0 1.5em 1em;
+}
+
+.footer {
+    height: 5%;
+}
