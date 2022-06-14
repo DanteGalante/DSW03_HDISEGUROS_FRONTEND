@@ -6,12 +6,14 @@ import { AngularMaterialModule } from '../shared/angular-material.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HeaderComponent } from './layout/header/header.component';
 
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
