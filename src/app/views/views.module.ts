@@ -4,6 +4,7 @@ import { AngularMaterialModule } from '../shared/angular-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ViewsRoutingModule } from './views-routing.module';
 import { HomeComponent } from './home.component';
+import { ReportesModule } from './reportes/reportes.module';
 @NgModule({
   declarations: [
     HomeComponent
@@ -12,7 +13,8 @@ import { HomeComponent } from './home.component';
     CommonModule,
     ViewsRoutingModule,
     AngularMaterialModule,
-    SharedModule
+    SharedModule,
+    ReportesModule
   ]
 })
 export class ViewsModule { }

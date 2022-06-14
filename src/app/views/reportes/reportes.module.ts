@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ListaReportesComponent } from './components/lista-reportes/lista-reportes.component';
+import { ReportesRoutingModule } from './reportes-routing.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ListaReportesComponent,
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReportesRoutingModule
   ]
 })
 export class ReportesModule { }
