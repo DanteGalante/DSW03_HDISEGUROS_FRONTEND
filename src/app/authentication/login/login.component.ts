@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatRadioChange } from '@angular/material/radio';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -12,7 +13,11 @@ export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
+    radio: new FormControl('', [Validators.required]),
+    
   });
+  seleccionado: any;
+  valor: any;
 
   constructor(private router: Router) { }
 
@@ -20,6 +25,7 @@ export class LoginComponent implements OnInit {
   }
   
   submit() {
+    console.log('resul', this.form.value)
     if (this.form.valid && this.form.touched) {
       console.log('entro login')
       this.error = '';
@@ -46,6 +52,11 @@ export class LoginComponent implements OnInit {
     console.log('REgistro entro')
     this.router.navigate(['auth/registro'])
     
+  }
+  changeComboo(event: any) {
+    this.valor = event.value
+    console.log('e', this.valor)
+    console.log('chnaged', event && event.value);
   }
 
   @Output() submitEM = new EventEmitter();

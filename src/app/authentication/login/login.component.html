@@ -6,32 +6,69 @@
         <mat-card-title>Login</mat-card-title>
         <mat-card-content>
             <form [formGroup]="form" (ngSubmit)="submit()">
-                <p>
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Número de celular" formControlName="username">
-                    </mat-form-field>
-                </p>
 
-                <p>
-                    <mat-form-field>
-                        <input type="password" matInput placeholder="Contraseña" formControlName="password">
-                    </mat-form-field>
-                </p>
+                <mat-radio-group aria-label="Selecciona una opcion" color="warn" (change)="changeComboo($event)" formControlName="radio">
+                    <mat-radio-button value="1">Conductor</mat-radio-button>
+                    <mat-radio-button value="2">Administradores</mat-radio-button>
+                  </mat-radio-group>
+                
 
-                <p *ngIf="error" class="error">
-                    {{ error }}
-                </p>
+                <div *ngIf="valor == 1">
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Número de celular" formControlName="username">
+                        </mat-form-field>
+                    </p>
+    
+                    <p>
+                        <mat-form-field>
+                            <input type="password" matInput placeholder="Contraseña" formControlName="password">
+                        </mat-form-field>
+                    </p>
+    
+                    <p *ngIf="error" class="error">
+                        {{ error }}
+                    </p>
+    
+                    <div class="button">
+                        <button mat-raised-button color="primary" type="submit" class="centrar">Login</button>
+                    </div>
+    
+                </div>  
 
-                <div class="button">
-                    <button mat-raised-button color="primary" type="submit" class="centrar">Login</button>
+                <div *ngIf="valor == 2">
+                    <p>
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Username" formControlName="username">
+                        </mat-form-field>
+                    </p>
+    
+                    <p>
+                        <mat-form-field>
+                            <input type="password" matInput placeholder="Contraseña" formControlName="password">
+                        </mat-form-field>
+                    </p>
+    
+                    <p *ngIf="error" class="error">
+                        {{ error }}
+                    </p>
+    
+                    <div class="button">
+                        <button mat-raised-button color="primary" type="submit" class="centrar">Login</button>
+                    </div>
+
                 </div>
-
+               
             </form>
         </mat-card-content>
 
-        <h4  class="centrar">
-            ¿No tienes cuenta? <a class="blue" (click)="registro()">Registrate Aqui</a>
-        </h4>
+        <div  *ngIf="valor == 1">
+            <h4  class="centrar">
+                ¿No tienes cuenta? <a class="blue" (click)="registro()">Registrate Aqui</a>
+            </h4>
+
+        </div>
+       
 
     </mat-card>
 </div>

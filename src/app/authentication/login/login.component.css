@@ -14,7 +14,10 @@
     width: 30%;
     padding: 5%;
 }
-
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  
 mat-card-title,
 mat-card-content {
     display: flex;

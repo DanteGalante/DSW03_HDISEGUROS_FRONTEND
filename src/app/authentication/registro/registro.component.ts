@@ -38,11 +38,11 @@ export class RegistroComponent implements OnInit {
       this.router.navigate(['auth'])
 
     } else {
-      Swal.fire(
-        'exit',
-        'Registro cancelado!',
-        'error'
-      )
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Error al registrar!'
+      })
       this.error = 'Falta algun dato';
     }
   }
