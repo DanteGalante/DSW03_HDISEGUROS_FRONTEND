@@ -5,12 +5,16 @@ const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'hdi'
+        redirectTo: 'auth'
     },
     {
         path: 'hdi',
         loadChildren: () => import('./views/views.module').then(m => m.ViewsModule)
-    }
+    },
+    {​​​​ 
+        path: 'auth', 
+        loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule),
+      }​​​​,
 ];
 
 @NgModule({
