@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatRadioChange } from '@angular/material/radio';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
         'inicio correcto!',
         'success'
       )
-      this.router.navigate(['hdi/reportes'])
+      this.router.navigate(['hdi/'])
       this.form.reset();
     } else {
       Swal.fire({

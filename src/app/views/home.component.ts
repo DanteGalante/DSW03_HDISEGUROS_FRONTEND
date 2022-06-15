@@ -12,9 +12,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  prueba(){
-    console.log('entro a boton prueba')
-    this.router.navigate(['hdi/reportes'])
-  }
 
 }
