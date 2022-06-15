@@ -8,6 +8,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AdministradorModule } from './modules/administrador/administrador.module';
 import { AjustadorModule } from './modules/ajustador/ajustador.module';
+import { ConductorModule } from './modules/conductor/conductor.module';
+import { EjecutivoModule } from './modules/ejecutivo/ejecutivo.module';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -20,7 +22,9 @@ import { AjustadorModule } from './modules/ajustador/ajustador.module';
     AngularMaterialModule,
     SharedModule,
     AdministradorModule,
-    AjustadorModule
+    AjustadorModule,
+    ConductorModule,
+    EjecutivoModule
   ],
 })
 export class ViewsModule { }
