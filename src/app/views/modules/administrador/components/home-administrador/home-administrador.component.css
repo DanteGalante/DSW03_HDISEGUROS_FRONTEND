@@ -1,0 +1,17 @@
+.mat-card {
+    margin: auto;
+    width: 80%;
+    padding: 5%;
+    
+}
+
+.mat-card-title, .mat-card-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1%;
+}
+
+.nav_admin {
+    list-style-type: none;
+}
