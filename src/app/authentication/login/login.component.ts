@@ -30,13 +30,14 @@ export class LoginComponent implements OnInit {
       console.log('entro login')
       this.error = '';
       this.submitEM.emit(this.form.value);
-      this.form.reset();
+  
       Swal.fire(
         'Exito',
         'inicio correcto!',
         'success'
       )
       this.router.navigate(['hdi/reportes'])
+      this.form.reset();
     } else {
       Swal.fire({
         icon: 'error',

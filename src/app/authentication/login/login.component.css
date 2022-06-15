@@ -6,12 +6,11 @@
 }
 
 .mat-form-field {
-    width: 100%;
+    width: 400px;
 }
-
 .mat-card {
     margin: auto;
-    width: 30%;
+    width: 80%;
     padding: 5%;
 }
 .mat-radio-button ~ .mat-radio-button {
@@ -22,11 +21,12 @@ mat-card-title,
 mat-card-content {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .error {
     padding: 16px;
-    width: 300px;
+    width: 400px;
     color: white;
     background-color: red;
 }
@@ -48,3 +48,22 @@ mat-card-content {
 .centrar{
     text-align: center
 }
+
+
+@media screen and (max-width: 600px) {
+    .mat-form-field {
+        width: 100%;
+    }
+    .mat-card {
+        margin: auto;
+        width: 100%;
+        padding: 5%;
+    }
+    .error {
+        padding: 16px;
+        width: 100%;
+        color: white;
+        background-color: red;
+    }
+  }
+  
