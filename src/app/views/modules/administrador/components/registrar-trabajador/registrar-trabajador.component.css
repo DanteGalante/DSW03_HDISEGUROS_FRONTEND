@@ -1,0 +1,11 @@
+form {
+    display: flex;
+    margin-left: 30%;
+    margin-right: 30%;
+    flex-direction: column;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}

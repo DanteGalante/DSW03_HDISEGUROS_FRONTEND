@@ -1,7 +1,53 @@
 <div class="header">
     <header-compent></header-compent>
 </div>
-<p>registrar-trabajador works!</p>
+
+<div class="body">
+    <h2>Registrar trabajadores</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        
+        <mat-form-field>
+            <input type="text" matInput placeholder="Nombre completo" formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select formControlName="rol" placeholder="Cargo">
+                <mat-option *ngFor="let tipo of tipoRol" [value]="tipo">
+                    {{tipo}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="datepicker" appearance="fill">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="fecNac">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+          
+        <mat-form-field>
+            <input type="text" matInput placeholder="Nombre de usuario" formControlName="nombre">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="password" matInput placeholder="Contraseña" formControlName="password">
+        </mat-form-field>
+
+        <p *ngIf="error" class="error">
+            {{ error }}
+        </p>
+
+        <div class="button">
+            <button mat-raised-button color="primary" type="submit" class="centrar">Registrar</button>
+            <button mat-raised-button color="secundary" type="button" class="centrar"
+                (click)="cancelar()">Cancelar</button>
+        </div>
+
+    </form>
+</div>
+
 <div class="footer">
     <footer-component></footer-component>
 </div>
