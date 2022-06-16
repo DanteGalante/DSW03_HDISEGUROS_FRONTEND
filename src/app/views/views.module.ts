@@ -10,6 +10,7 @@ import { AdministradorModule } from './modules/administrador/administrador.modul
 import { AjustadorModule } from './modules/ajustador/ajustador.module';
 import { ConductorModule } from './modules/conductor/conductor.module';
 import { EjecutivoModule } from './modules/ejecutivo/ejecutivo.module';
+
 @NgModule({
   declarations: [
     HomeComponent
@@ -22,7 +23,7 @@ import { EjecutivoModule } from './modules/ejecutivo/ejecutivo.module';
     AdministradorModule,
     AjustadorModule,
     ConductorModule,
-    EjecutivoModule
+    EjecutivoModule,
   ],
 })
 export class ViewsModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatButton } from '@angular/material/button';
+import { MatTab } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   public menuRol: any[] = [];
   //TODO Harcodeado para ver si funcionaba
-  public rol: string = "admin";
+  public rol: string = "ajustador";
 
   constructor(private router: Router) { }
 
@@ -59,6 +61,7 @@ export class HeaderComponent implements OnInit {
           },
           {
             label: "Levantar reporte"
+            
           },
           {
             label: "Seguros"

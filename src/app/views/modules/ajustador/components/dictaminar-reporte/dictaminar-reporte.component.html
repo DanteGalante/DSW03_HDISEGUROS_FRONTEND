@@ -1,0 +1,37 @@
+<div class="header">
+    
+</div>
+<div class="contenedor">
+    <mat-card>
+        <mat-card-title>Dictaminar reporte de siniestro</mat-card-title>
+            <mat-card-content>
+            <form [formGroup]="form" (ngSubmit)="submit()">
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Descripción del siniestro</mat-label>
+                    <textarea matInput placeholder="Descripción del siniestro" formControlName="descripcionSiniestro"
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="1"
+                    cdkAutosizeMaxRows="5">
+                </textarea>
+                  </mat-form-field>
+                
+            </p>
+
+            <p *ngIf="error" class="error">
+                {{ error }}
+            </p>
+
+            <div class="button">
+                <button mat-raised-button color="primary" type="submit" class="centrar">Dictaminar</button>
+                <button mat-raised-button color="secundary" type="button" class="centrar" (click)="cancelar()">Cancelar</button>
+            </div>
+
+            </form>
+            </mat-card-content>
+
+
+    </mat-card>
+</div>
+
+  
