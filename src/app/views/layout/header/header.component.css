@@ -8,6 +8,9 @@ img {
     display: none;
 }
 
+.header-selections {
+    height: auto;
+}
 
 /* Propiedades para el Top bar */
 
@@ -91,9 +94,6 @@ img {
     }
     .dataUserMenu {
         display: flex;
-    }
-    .grpName {
-        font-size: 12px;
     }
     .burger-menu {
         display: block;
