@@ -5,9 +5,10 @@
     <div class="body">
         <div class="content-wrap">
             <!--page content-->
-            <div class="router">
+            <div class="router" [ngSwitch]="rol">
                 <!--router-outlet></router-outlet-->
-                <app-home-administrador></app-home-administrador>
+                <app-home-administrador *ngSwitchCase="'admin'"></app-home-administrador>
+                <app-home-ajustador *ngSwitchCase="'ajustador'"></app-home-ajustador>
             </div>
         </div>
         <div class="footer">
