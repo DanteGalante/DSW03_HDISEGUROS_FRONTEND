@@ -1,7 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component,AfterViewInit, ViewChild, OnInit } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -13,22 +15,39 @@ import {MatTableDataSource} from '@angular/material/table';
 export class ReportesAsignadosComponent implements OnInit {
 
 
-  constructor() {
+  constructor(private http:HttpClient) {
 
    }
 
+   reportes:any=[];
+   modalTitle="";
+   idReporteSiniestro=0;
+   Latitud="";
+   Longitud="";
+   idVehiculo=0;
+
+   addClick(){
+
+   }
+   
+
   ngOnInit(): void {
+    this.refreshList();
   }
 
- 
-  
+  refreshList(){
+    this.http.get<any>(environment.API_URL+'reportes')
+    .subscribe(data=>{
+      this.reportes=data;
+    }
+    );
+  }
 
   ngAfterViewInit() {
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-   
   }
 
 }
