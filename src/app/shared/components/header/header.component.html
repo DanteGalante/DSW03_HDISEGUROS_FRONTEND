@@ -1,0 +1,36 @@
+<mat-toolbar>
+    <span >
+        <img src="/assets/images/logo.png" alt="">
+    </span>
+    <div class="header-menu">
+        <button 
+        class="header-button" 
+        mat-button 
+        *ngFor="let opcion of menuRol; let i = index"
+        (click)="irA(opcion)">
+            {{ opcion.label }}
+        </button>
+    </div>
+    <div class="burger-menu">
+        <button mat-button [matMenuTriggerFor]="miMenu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #miMenu="matMenu">
+            <span mat-menu-item *ngFor="let opcion of menuRol" (click) = "irA(opcion)"> {{ opcion.label }}</span>
+        </mat-menu>
+    </div>
+    <div class="spacer"></div>
+    <div class="user">
+        <div class="userActions">
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon class="userIcon">account_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item (click)="salir()">
+                  <mat-icon>exit_to_app</mat-icon>
+                  <span>Cerrar sesión</span>
+              </button>
+            </mat-menu>
+        </div>
+    </div>
+</mat-toolbar>
