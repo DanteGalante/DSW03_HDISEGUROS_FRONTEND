@@ -24,9 +24,9 @@ export class LoginComponent implements OnInit {
   }
   
   submit() {
-    console.log('resul', this.form.value)
+    console.log('resultado', this.form.value)
     if (this.form.valid && this.form.touched) {
-      console.log('entro login')
+      console.log('entró al login')
       this.error = '';
       this.submitEM.emit(this.form.value);
   
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         title: 'Oops...',
         text: 'Error al iniciar sesión!'
       })
-      this.error = 'Username or password invalid';
+      this.error = 'Usuario o contraseña inválido';
     }
   }
   error!: string | null;
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
   changeComboo(event: any) {
     this.valor = event.value
     console.log('e', this.valor)
-    console.log('chnaged', event && event.value);
+    console.log('changed', event && event.value);
   }
 
   @Output() submitEM = new EventEmitter();

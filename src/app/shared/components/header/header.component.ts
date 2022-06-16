@@ -35,8 +35,14 @@ export class HeaderComponent implements OnInit {
             this.router.navigate(['hdi/admin/registrartrabajador'])
         }
         break;
-      //TODO Aca tiene que estar toda la programacion que permite ir a las demas pantallas
+      case 'ajustador':
+        switch (opcion.label) {
+          case 'Reportes':
+            this.router.navigate(['hdi/reportesasignados'])
+            break;
+        }
         break;
+      //TODO Aca tiene que estar toda la programacion que permite ir a las demas pantallas
       default:
         break;
     }

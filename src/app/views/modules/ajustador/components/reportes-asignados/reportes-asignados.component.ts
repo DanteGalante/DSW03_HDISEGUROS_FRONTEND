@@ -36,7 +36,7 @@ export class ReportesAsignadosComponent implements OnInit {
   }
 
   refreshList(){
-    this.http.get<any>(environment.API_URL+'reportes')
+    this.http.get<any>(environment.API_URL+'reportesiniestro')
     .subscribe(data=>{
       this.reportes=data;
     }
