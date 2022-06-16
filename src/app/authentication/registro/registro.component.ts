@@ -1,7 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Injectable, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from  '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-registro',
@@ -12,13 +16,31 @@ export class RegistroComponent implements OnInit {
 
 
   form: FormGroup = new FormGroup({
-    licencia: new FormControl('', [Validators.required]),
-    celular: new FormControl('', [Validators.required]),
-    nombre: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
+    NombreCompleto: new FormControl('', [Validators.required]),
+    FechaNacimiento: new FormControl('', [Validators.required]),
+    Contrasenia: new FormControl('', [Validators.required]),
+    idTipoUsuario: new FormControl('', [Validators.required]),
+    Telefono: new FormControl('', [Validators.required]),
+    NumeroLicencia: new FormControl('', [Validators.required])
   });
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http:HttpClient) { 
+    this.http.post
+  }
+
+   
+
+  users:any=[];
+
+  modalTitle ="";
+  nombreCompleto = "";
+  fechaNacimiento = new Date();
+  contrasenia = "";
+  idTipoUsuario = 0;
+  telefono = "";
+  numeroLicencia = "";
+  
+
 
   ngOnInit(): void {
   }
@@ -53,10 +75,30 @@ export class RegistroComponent implements OnInit {
   }
 
   registro(){
-    console.log('REgistro entro')
     this.router.navigate(['auth/registro'])
     
   }
+
+
+  createClick(){
+    var val={
+      nombreCompleto:this.form.value.NombreCompleto,
+      fechaNacimiento:this.form.value.FechaNacimiento,
+      contrasenia:this.form.value.Contrasenia,
+      idTipoUsuario:this.form.value.idTipoUsuario,
+      telefono:this.form.value.Telefono,
+      numeroLicencia:this.form.value.NumeroLicencia
+    };
+
+    console.log(this.form.value);
+
+    this.http.post(environment.API_URL+'conductores',this.form.value)
+    .subscribe(res=>{
+      alert(res.toString());
+      
+    });
+  }
+
 
   @Output() submitEM = new EventEmitter();
 

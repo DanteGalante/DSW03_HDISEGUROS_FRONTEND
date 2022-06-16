@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeConductorComponent
   },
   {
-    path: 'registrar-trabajador',
+    path: 'registrarconductor',
     component: RegistrarConductorComponent
   }
 ];

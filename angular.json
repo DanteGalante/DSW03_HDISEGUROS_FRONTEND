@@ -27,9 +27,7 @@
                             "src/theme/custom-theme.scss",
                             "src/styles.css"
                         ],
-                        "scripts": [
-                            "src/assets/geofindme.js"
-                        ]
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
