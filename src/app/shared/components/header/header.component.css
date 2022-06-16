@@ -8,6 +8,9 @@ img {
     display: none;
 }
 
+.header-selections {
+    height: auto;
+}
 
 /* Propiedades para el Top bar */
 
@@ -54,15 +57,6 @@ img {
     margin-right: 2%;
 }
 
-.dataUser {
-    display: flex;
-    flex-direction: column;
-}
-
-.unidad {
-    color: var(--text-color);
-}
-
 .userIcon {
     font-size: 56px;
     height: 56px;
@@ -91,9 +85,6 @@ img {
     }
     .dataUserMenu {
         display: flex;
-    }
-    .grpName {
-        font-size: 12px;
     }
     .burger-menu {
         display: block;

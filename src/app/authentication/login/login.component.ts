@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
   error!: string | null;
 
   registro(){
-    console.log('REgistro entro')
     this.router.navigate(['auth/registro'])
     
   }

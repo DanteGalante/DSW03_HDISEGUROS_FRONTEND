@@ -8,6 +8,10 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./modules/administrador/administrador.module').then(m => m.AdministradorModule)
+  }
 ];
 
 @NgModule({

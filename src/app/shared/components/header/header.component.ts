@@ -24,6 +24,24 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/auth']);
   }
 
+  irA(opcion: any){
+    switch (this.rol) {
+      case 'admin':
+        switch (opcion.label) {
+          case 'Inicio':
+            this.router.navigate(['/hdi']);
+            break;
+          case 'Registrar trabajador':
+            this.router.navigate(['hdi/admin/registrartrabajador'])
+        }
+        break;
+      //TODO Aca tiene que estar toda la programacion que permite ir a las demas pantallas
+        break;
+      default:
+        break;
+    }
+  }
+
   generarMenu() {
     switch (this.rol) {
       case "admin":

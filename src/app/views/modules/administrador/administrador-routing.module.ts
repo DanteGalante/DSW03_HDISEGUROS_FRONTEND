@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeAdministradorComponent
   },
   {
-    path: 'registrar-trabajador',
+    path: 'registrartrabajador',
     component: RegistrarTrabajadorComponent
   }
 ];
