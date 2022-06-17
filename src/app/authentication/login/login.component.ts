@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
   
   submit() {
-    console.log('resul', this.form.value)
+    console.log('resul', this.form.value.username)
     if (this.form.valid && this.form.touched) {
       console.log('entro login')
       this.error = '';
