@@ -6,11 +6,13 @@ import { HomeEjecutivoComponent } from './components/home-ejecutivo/home-ejecuti
 const routes: Routes = [
   {
     path: '',
-    component: HomeEjecutivoComponent
-  },
-  {
-    path: 'asignarreportes',
-    component: AsignarReportesComponent
+    component: HomeEjecutivoComponent,
+    children: [
+      {
+        path: 'asignarreportes',
+        component: AsignarReportesComponent
+      }
+    ]
   }
 ];
 

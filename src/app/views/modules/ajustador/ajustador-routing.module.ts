@@ -8,15 +8,17 @@ import { ReportesAsignadosComponent } from './components/reportes-asignados/repo
 const routes: Routes = [
   {
     path: '',
-    component: HomeAjustadorComponent
-  },
-  {
-    path: 'dictaminarreporte',
-    component: DictaminarReporteComponent
-  },
-  {
-    path: 'reportesasignados',
-    component: ReportesAsignadosComponent
+    component: HomeAjustadorComponent,
+    children: [
+      {
+        path: 'dictaminarreporte',
+        component: DictaminarReporteComponent
+      },
+      {
+        path: 'reportesasignados',
+        component: ReportesAsignadosComponent
+      }
+    ]    
   }
 ];
 

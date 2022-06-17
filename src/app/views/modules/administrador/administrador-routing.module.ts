@@ -6,11 +6,13 @@ import { RegistrarTrabajadorComponent } from './components/registrar-trabajador/
 const routes: Routes = [
   {
     path: '',
-    component: HomeAdministradorComponent
-  },
-  {
-    path: 'registrartrabajador',
-    component: RegistrarTrabajadorComponent
+    component: HomeAdministradorComponent,
+    children: [
+      {
+        path: 'registrartrabajador',
+        component: RegistrarTrabajadorComponent
+      }
+    ]
   }
 ];
 
