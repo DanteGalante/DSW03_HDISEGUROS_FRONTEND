@@ -7,10 +7,16 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-  },
-  {
-    path: 'admin',
-    loadChildren: () => import('./modules/administrador/administrador.module').then(m => m.AdministradorModule)
+    children: [
+      {
+        path: 'admin',
+        loadChildren: () => import('./modules/administrador/administrador.module').then(m => m.AdministradorModule)
+      },
+      {
+        path: 'ejecutivo',
+        loadChildren: () => import('./modules/ejecutivo/ejecutivo.module').then(m => m.EjecutivoModule)
+      }
+    ]
   }
 ];
 
