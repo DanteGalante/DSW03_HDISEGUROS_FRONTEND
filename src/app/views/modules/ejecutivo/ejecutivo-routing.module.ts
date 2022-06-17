@@ -7,12 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeEjecutivoComponent,
-    children: [
-      {
-        path: 'asignarreportes',
-        component: AsignarReportesComponent
-      }
-    ]
+  },
+  {
+    path: 'asignar-reportes',
+    component: AsignarReportesComponent
   }
 ];
 

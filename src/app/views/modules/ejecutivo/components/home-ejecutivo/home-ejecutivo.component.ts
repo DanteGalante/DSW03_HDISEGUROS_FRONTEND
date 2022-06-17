@@ -14,6 +14,8 @@ export class HomeEjecutivoComponent implements OnInit {
   }
 
   irA() {
-    this.router.navigate(['hdi/ejecutivo/asignarreportes'])
+    //TODO Codigo harcodeado de nuevo
+    console.log("asignar-reportes")
+    this.router.navigate(['hdi/ejecutivo/asignar-reportes'])
   }
 }

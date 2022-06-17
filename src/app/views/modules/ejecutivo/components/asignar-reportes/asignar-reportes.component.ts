@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
+//TODO Codigo hardcodeado
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
   symbol: string;
 }
-
+//TODO Codigo hardcodeado
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
@@ -26,7 +26,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./asignar-reportes.component.css']
 })
 export class AsignarReportesComponent implements OnInit {
-
+  //TODO Codigo hardcodeado
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 
