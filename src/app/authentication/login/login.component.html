@@ -3,6 +3,8 @@
 </div>
 <div class="contenedor">
     <mat-card>
+        <!-- Material Card -->
+
         <mat-card-title>Login</mat-card-title>
         <mat-card-content>
             <form [formGroup]="form" (ngSubmit)="submit()">
@@ -13,6 +15,7 @@
                       </mat-radio-group>
                 </div>
 
+                <!-- Login de Conductor -->
                 <div *ngIf="valor == 1">
                     <p>
                         <mat-form-field class="tam">
@@ -36,6 +39,7 @@
     
                 </div>  
 
+                <!-- Login de Rol de Empleados -->
                 <div *ngIf="valor == 2">
                     <p>
                         <mat-form-field>
@@ -62,6 +66,7 @@
             </form>
         </mat-card-content>
 
+        <!-- Registro de nuevo usuario de tipo conductor -->
         <div  *ngIf="valor == 1">
             <h4  class="centrar">
                 ¿No tienes cuenta? <a class="blue" (click)="registro()">Registrate Aqui</a>

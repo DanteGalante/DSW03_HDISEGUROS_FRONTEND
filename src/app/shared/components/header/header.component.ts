@@ -20,7 +20,9 @@ export class HeaderComponent implements OnInit {
     this.generarMenu();
   }
 
-  salir(){
+
+  /** Botón para cerrar sesión */
+  logOut(){
     this.router.navigate(['/auth']);
   }
 
@@ -48,6 +50,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  /** Genera el Menu de acuerdo al rol del usuario */
   generarMenu() {
     switch (this.rol) {
       case "admin":

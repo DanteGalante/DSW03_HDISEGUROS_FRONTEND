@@ -16,6 +16,7 @@
             <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #miMenu="matMenu">
+            <!-- Muestra las pestañas o tabs dependiendo del rol del usuario -->
             <span mat-menu-item *ngFor="let opcion of menuRol" (click) = "irA(opcion)"> {{ opcion.label }}</span>
         </mat-menu>
     </div>
@@ -26,7 +27,8 @@
               <mat-icon class="userIcon">account_circle</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item (click)="salir()">
+                <!-- Botón para cerrar sesión -->
+                <button mat-menu-item (click)="logOut()">
                   <mat-icon>exit_to_app</mat-icon>
                   <span>Cerrar sesión</span>
               </button>
