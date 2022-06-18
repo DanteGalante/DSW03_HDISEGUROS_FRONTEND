@@ -6,11 +6,13 @@ import { RegistrarConductorComponent } from './components/registrar-conductor/re
 const routes: Routes = [
   {
     path: '',
-    component: HomeConductorComponent
-  },
-  {
-    path: 'registrarconductor',
-    component: RegistrarConductorComponent
+    component: HomeConductorComponent,
+    children: [
+      {
+        path: 'registrar-trabajador',
+        component: RegistrarConductorComponent
+      }
+    ]
   }
 ];
 

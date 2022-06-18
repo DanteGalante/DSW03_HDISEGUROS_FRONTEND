@@ -35,6 +35,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatAutocompleteModule} from '@angular/material/autocomplete';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MomentDateModule } from "@angular/material-moment-adapter";
 
 @NgModule({
   declarations: [],
@@ -75,7 +76,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatSortModule,
     MatAutocompleteModule,
     DragDropModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MomentDateModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -112,7 +114,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatSortModule,
     MatAutocompleteModule,
     DragDropModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MomentDateModule,
   ]
 })
 export class AngularMaterialModule { }
