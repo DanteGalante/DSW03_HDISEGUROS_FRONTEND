@@ -7,12 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeAdministradorComponent,
-    children: [
-      {
-        path: 'registrartrabajador',
-        component: RegistrarTrabajadorComponent
-      }
-    ]
+  },
+  {
+    path: 'registrartrabajador',
+    component: RegistrarTrabajadorComponent
   }
 ];
 
