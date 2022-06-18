@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,10 +24,16 @@ export class LoginComponent implements OnInit {
 
 
   /** Constructor */
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private authService: AuthService) { }
 
   login() {
-    this.router.navigate(['auth/registro'])
+
+    this.authService.login()
+      .subscribe( resp => {
+        console.log(resp);
+      })
+    //this.router.navigate(['auth/registro'])
   }
 
   ngOnInit(): void {
@@ -46,8 +53,25 @@ export class LoginComponent implements OnInit {
         'inicio correcto!',
         'success'
       )
+      /** Método login con autenticación */
+
+      this.authService.login()
+      .subscribe( resp => {
+        console.log(resp);
+
+        if (resp.idUsuario) {
+          this.router.navigate(['hdi/'])
+        }
+
+      })
+
       /** Te envía a la ventana Home del usuario */
-      this.router.navigate(['hdi/'])
+
+
+      //this.router.navigate(['hdi/'])
+
+
+
       this.form.reset();
     } else {
       Swal.fire({

@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router) { 
     //TODO Esta linea se agrego para probar que funcionaba el switch
-    this.rol = "ejecutivo"
+    this.rol = "conductor"
   }
 
   ngOnInit(): void {

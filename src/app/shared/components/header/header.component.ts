@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatTab } from '@angular/material/tabs';
 import { Router } from '@angular/router';
+import { Auth } from 'src/app/authentication/interfaces/auth.interface';
+import { AuthService } from 'src/app/authentication/services/auth.service';
 
 @Component({
   selector: 'header-compent',
@@ -14,7 +16,14 @@ export class HeaderComponent implements OnInit {
   //TODO Harcodeado para ver si funcionaba
   public rol: string = "ajustador";
 
-  constructor(private router: Router) { }
+  /**Se llena con la información del AuthService */
+  //undefined
+  get auth(){
+    return this.authService.auth;
+  }
+
+  constructor(private router: Router,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.generarMenu();
