@@ -27,7 +27,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class AsignarReportesComponent implements OnInit {
   //TODO Codigo hardcodeado
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['conductor', 'fecNacimiento', 'estatus', 'ajustador'];
   dataSource = ELEMENT_DATA;
 
   constructor() { }
