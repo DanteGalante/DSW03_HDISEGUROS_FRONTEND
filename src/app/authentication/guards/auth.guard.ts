@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
+import { Router, ActivatedRouteSnapshot, CanActivate, CanLoad, Route, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanLoad {
 
-  constructor( private authService: AuthService ) {
+  constructor( private authService: AuthService,
+              private router: Router ) {
 
   }
 
@@ -21,14 +24,26 @@ export class AuthGuard implements CanLoad {
    */
   canLoad(
     route: Route,
-    segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
+    segments: UrlSegment[]): Observable<boolean> | boolean {
 
-      /** Si encuentra un id de usuario */
-      if( this.authService.auth.idUsuario ){
-        return true;
-      }
+      return this.authService.verificaAutenticacion()
+      .pipe(
+        tap( estaAutenticado => {
+          if( !estaAutenticado) {
+            this.router.navigate(['/auth/login']);
+          }
+        } )
+      )
+      
+/**
+ * /** Si encuentra un id de usuario 
+ if( this.authService.auth.idUsuario ){
+  return true;
+}
 
-    console.log('Bloqueado por AuthGuard')
-    return false;
+console.log('Bloqueado por AuthGuard')
+return false;
+ */
+      
   }
 }
