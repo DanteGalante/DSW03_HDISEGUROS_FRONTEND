@@ -16,7 +16,7 @@ const routes: Routes = [
         loadChildren: () => import('./modules/ejecutivo/ejecutivo.module').then(m => m.EjecutivoModule)
       },
       {
-        path: '**',
+        path:'**',
         component: HomeComponent
       }
     ]
