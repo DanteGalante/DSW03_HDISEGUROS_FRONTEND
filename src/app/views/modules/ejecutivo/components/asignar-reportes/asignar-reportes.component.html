@@ -1,3 +1,5 @@
+<header-compent></header-compent>
+
 <body>
     <h2 id="titulo">Lista de reportes de siniestro</h2>
     <div id="tabla">
@@ -5,30 +7,43 @@
             <ng-container matColumnDef="conductor">
                 <th mat-header-cell *matHeaderCellDef> Conductor </th>
                 <!-- TODO aca hay que cambiar position por el elemento que necesita. Igualmente en los demas -->
-                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.conductor}} </td>
             </ng-container>
-    
+
             <ng-container matColumnDef="fecNacimiento">
                 <th mat-header-cell *matHeaderCellDef> Fecha de creacion </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.fecnac}} </td>
             </ng-container>
-    
+            //TODO Esto probablemente se pueda quitar, a fin de cuentas oslo se necesita asignar reportes a reportes sin asignar
             <ng-container matColumnDef="estatus">
                 <th mat-header-cell *matHeaderCellDef> Estatus </th>
-                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.estatus}} </td>
             </ng-container>
-    
+
             <!-- TODO Aca tiene que ir un combobox que cargue todos los ajustadores -->
             <ng-container matColumnDef="ajustador">
                 <th mat-header-cell *matHeaderCellDef> Ajustador </th>
-                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                <td mat-cell *matCellDef="let element">
+                    <mat-select formControlName="element" placeholder="Cargo">
+                        <mat-option *ngFor="let element of ajustadores" [value]="element.nombre">
+                            {{element.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </td>
             </ng-container>
-    
+
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>    
+        </table>
+
+        <mat-paginator 
+            showFirstLastButtons 
+            [pageSize]="5">
+        </mat-paginator>
     </div>
     <div id="guardar">
         <button mat-raised-button class="default-button">Guardar</button>
     </div>
 </body>
+
+<footer-component></footer-component>
