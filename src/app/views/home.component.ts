@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth } from 'src/app/authentication/interfaces/auth.interface';
+import { AuthService } from 'src/app/authentication/services/auth.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,9 +13,18 @@ export class HomeComponent implements OnInit {
 
   public rol: any;
 
-  constructor(private router: Router) { 
+  get auth(){
+    return this.authService.auth;
+  }
+
+  constructor(private router: Router,
+    private authService: AuthService) { 
     //TODO Esta linea se agrego para probar que funcionaba el switch
-    this.rol = "conductor"
+    
+    this.rol = this.auth.idTipoUsuario
+    console.log(this.auth.idTipoUsuario)
+    
+    
   }
 
   ngOnInit(): void {

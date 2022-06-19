@@ -45,7 +45,15 @@ export class AuthService {
    * Recibe respuesta del backend
    */
   login() {
-    return this.http.get<Auth>(`${ this.baseUrl }ajustadores/1`)
+
+
+    /**
+    this.http.get<Auth>(`${ this.baseUrl }ajustadores`)
+                .pipe(
+                  tap( auth => this._authGetUsuario)
+                )
+     */
+    return this.http.get<Auth>(`${ this.baseUrl }ajustadores/7`)
                 .pipe(
                   tap( auth => this._auth = auth ),
                   tap( auth => localStorage.setItem('idUsuario', auth.idUsuario)),
@@ -56,6 +64,10 @@ export class AuthService {
 
   logout() {
     this._auth = undefined;
+  }
+
+  obtenerTipoUsuarioActivo() {
+    return this._auth?.idTipoUsuario;
   }
 
 }

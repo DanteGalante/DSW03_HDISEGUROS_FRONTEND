@@ -10,6 +10,7 @@ import { AuthenticationRoutingModule } from './authentication/authentication-rou
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthenticationModule } from './authentication/authentication.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AuthenticationRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

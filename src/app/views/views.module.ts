@@ -10,6 +10,7 @@ import { AdministradorModule } from './modules/administrador/administrador.modul
 import { AjustadorModule } from './modules/ajustador/ajustador.module';
 import { ConductorModule } from './modules/conductor/conductor.module';
 import { EjecutivoModule } from './modules/ejecutivo/ejecutivo.module';
+import { AuthenticationModule } from '../authentication/authentication.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EjecutivoModule } from './modules/ejecutivo/ejecutivo.module';
     AjustadorModule,
     ConductorModule,
     EjecutivoModule,
+    AuthenticationModule
   ],
 })
 export class ViewsModule { }
