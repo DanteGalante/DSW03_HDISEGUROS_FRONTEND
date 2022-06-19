@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
 
   /** Botón para cerrar sesión */
   logOut(){
+    this.authService.logout();
     this.router.navigate(['/auth']);
   }
 
