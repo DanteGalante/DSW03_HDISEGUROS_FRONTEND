@@ -19,7 +19,6 @@ export class RegistroComponent implements OnInit {
     NombreCompleto: new FormControl('', [Validators.required]),
     FechaNacimiento: new FormControl('', [Validators.required]),
     Contrasenia: new FormControl('', [Validators.required]),
-    idTipoUsuario: new FormControl('', [Validators.required]),
     Telefono: new FormControl('', [Validators.required]),
     NumeroLicencia: new FormControl('', [Validators.required])
   });
@@ -85,14 +84,14 @@ export class RegistroComponent implements OnInit {
       nombreCompleto:this.form.value.NombreCompleto,
       fechaNacimiento:this.form.value.FechaNacimiento,
       contrasenia:this.form.value.Contrasenia,
-      idTipoUsuario:this.form.value.idTipoUsuario,
+      idTipoUsuario:1,
       telefono:this.form.value.Telefono,
       numeroLicencia:this.form.value.NumeroLicencia
     };
 
     console.log(this.form.value);
 
-    this.http.post(environment.API_URL+'conductores',this.form.value)
+    this.http.post(environment.API_URL+'conductores', this.form.value)
     .subscribe(res=>{
       alert(res.toString());
       

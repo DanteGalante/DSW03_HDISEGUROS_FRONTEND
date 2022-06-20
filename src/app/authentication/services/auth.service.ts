@@ -14,6 +14,7 @@ export class AuthService {
   private baseUrl: string = environment.API_URL;
   /** Se almacena el resultado de la autenticación */
   private _auth: Auth | undefined;
+  private idRuta: string | undefined;
 
 
   /**Getter */
@@ -30,7 +31,7 @@ export class AuthService {
       return of(false);
     }
 
-    return this.http.get<Auth>(`${ this.baseUrl }ajustadores/1`)
+    return this.http.get<Auth>(`${ this.baseUrl }usuarios/${this.idRuta}`)
             .pipe(
               map(auth => {
                 /** Se guarda la información del usuario autenticado */
@@ -44,23 +45,26 @@ export class AuthService {
   /** Obtiene los datos del usuario,
    * Recibe respuesta del backend
    */
-  login() {
+  login(idLogueado: any) {
 
-
+    this.idRuta = idLogueado.toString();
+    
     /**
     this.http.get<Auth>(`${ this.baseUrl }ajustadores`)
                 .pipe(
                   tap( auth => this._authGetUsuario)
                 )
      */
-    return this.http.get<Auth>(`${ this.baseUrl }ajustadores/7`)
+    return this.http.get<Auth>(`${ this.baseUrl }usuarios/${this.idRuta}`)
                 .pipe(
                   tap( auth => this._auth = auth ),
                   tap( auth => localStorage.setItem('idUsuario', auth.idUsuario)),
                   tap( auth => localStorage.setItem('nombreCompleto', auth.nombreCompleto)),
-                  tap( auth => localStorage.setItem('idTipoUsuario', auth.idTipoUsuario))
+                  tap( auth => localStorage.setItem('idTipoUsuario', auth.idTipoUsuario)),
+                  
                 );
   }
+
 
   logout() {
     this._auth = undefined;
@@ -69,5 +73,6 @@ export class AuthService {
   obtenerTipoUsuarioActivo() {
     return this._auth?.idTipoUsuario;
   }
+
 
 }

@@ -4,6 +4,7 @@ import { MatTab } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 import { Auth } from 'src/app/authentication/interfaces/auth.interface';
 import { AuthService } from 'src/app/authentication/services/auth.service';
+import { HomeAjustadorComponent } from 'src/app/views/modules/ajustador/components/home-ajustador/home-ajustador.component';
 
 @Component({
   selector: 'header-compent',
@@ -13,8 +14,8 @@ import { AuthService } from 'src/app/authentication/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   public menuRol: any[] = [];
-  //TODO Harcodeado para ver si funcionaba
-  public rol: string = "ajustador";
+  
+  public rol: any;
 
   /**Se llena con la información del AuthService */
   //undefined
@@ -23,7 +24,12 @@ export class HeaderComponent implements OnInit {
   }
 
   constructor(private router: Router,
-              private authService: AuthService) { }
+              private authService: AuthService) { 
+
+                this.rol = this.auth.idTipoUsuario
+                console.log(this.auth.idTipoUsuario)
+
+              }
 
   ngOnInit(): void {
     this.generarMenu();
@@ -38,7 +44,7 @@ export class HeaderComponent implements OnInit {
 
   irA(opcion: any){
     switch (this.rol) {
-      case 'admin':
+      case 4:
         switch (opcion.label) {
           case 'Inicio':
             this.router.navigate(['/hdi']);
@@ -47,10 +53,13 @@ export class HeaderComponent implements OnInit {
             this.router.navigate(['hdi/admin/registrartrabajador'])
         }
         break;
-      case 'ajustador':
+      case 3:
         switch (opcion.label) {
+          case 'Inicio':
+            this.router.navigate(['/hdi']);
+            break;
           case 'Reportes':
-            this.router.navigate(['hdi/reportesasignados'])
+            this.router.navigate(['hdi/ajustador/reportesasignados'])
             break;
         }
         break;
@@ -63,7 +72,7 @@ export class HeaderComponent implements OnInit {
   /** Genera el Menu de acuerdo al rol del usuario */
   generarMenu() {
     switch (this.rol) {
-      case "admin":
+      case 4:
           this.menuRol = [
             {
               label: "Inicio"
@@ -73,7 +82,7 @@ export class HeaderComponent implements OnInit {
             }
           ];
         break;
-      case "conductor":
+      case 1:
         this.menuRol = [
           {
             label: "Inicio"
@@ -87,7 +96,7 @@ export class HeaderComponent implements OnInit {
           }
         ];
       break;
-      case "ajustador":
+      case 3:
         this.menuRol = [
           {
             label: "Inicio"
@@ -97,7 +106,7 @@ export class HeaderComponent implements OnInit {
           }
         ]
       break;
-      case "ejecutivo":
+      case 3:
         this.menuRol = [
           {
             label: "Inicio"

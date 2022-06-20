@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AngularMaterialModule } from './angular-material.module';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AuthenticationRoutingModule } from '../authentication/authentication-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     CommonModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    AuthenticationRoutingModule
   ],
   exports: [
     HeaderComponent,

@@ -40,10 +40,11 @@ export class AuthGuard implements CanLoad {
  if( this.authService.auth.idUsuario ){
   return true;
 }
+*/
 
 console.log('Bloqueado por AuthGuard')
 return false;
- */
+ 
       
   }
 }

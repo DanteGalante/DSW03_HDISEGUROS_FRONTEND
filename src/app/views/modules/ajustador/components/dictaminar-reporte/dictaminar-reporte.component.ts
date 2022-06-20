@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +16,10 @@ export class DictaminarReporteComponent implements OnInit {
     descripcionSiniestro: new FormControl('', [Validators.required])
   });
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private http:HttpClient) { 
+      this.http.post
+    }
 
   ngOnInit(): void {
   }
@@ -22,7 +27,6 @@ export class DictaminarReporteComponent implements OnInit {
   submit() {
     console.log('resul', this.form.value)
     if (this.form.valid && this.form.touched) {
-      console.log('entro login')
       this.error = '';
       this.submitEM.emit(this.form.value);
       this.form.reset();
@@ -31,7 +35,7 @@ export class DictaminarReporteComponent implements OnInit {
         'Dictamen realizado con exito!',
         'success'
       )
-      this.router.navigate(['hdi'])
+      this.router.navigate(["hdi"]);
 
     } else {
       Swal.fire({
@@ -52,6 +56,24 @@ export class DictaminarReporteComponent implements OnInit {
     this.router.navigate(['hdi'])
     
   }
+
+  createClick(){
+    var val ={
+      Descripción:this.form.value.descripcionSiniestro,
+      idReporteSiniestro:localStorage.getItem('idReporteSiniestro'),
+      idUsuario:localStorage.getItem('idUsuario')
+    };
+
+    console.log(this.form.value.descripcionSiniestro);
+    console.log(localStorage.getItem('idReporteSiniestro'));
+
+    this.http.post(environment.API_URL+'dictamenes', val)
+    .subscribe(res=>{
+      alert(res.toString());
+      
+    });
+  }
+  
 
   @Output() submitEM = new EventEmitter();
 

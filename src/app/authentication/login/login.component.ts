@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { AuthService } from '../services/auth.service';
 
@@ -14,24 +16,30 @@ export class LoginComponent implements OnInit {
 
   /** Validaciones de campos vacíos para el form de login */
   form: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
+    Telefono: new FormControl('', [Validators.nullValidator]),
+    NombreUsuario: new FormControl('', [Validators.nullValidator]),
+    Contrasenia: new FormControl('', [Validators.nullValidator]),
     radio: new FormControl('', [Validators.required]),
     
   });
   seleccionado: any;
   valor: any;
 
+  /** Variable donde se almacenará el id del usuario para obtener su información de sesión */
+  public idUsuarioLogueado: any;
+
 
   /** Constructor */
   constructor(private router: Router,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private http:HttpClient) { 
+                this.http.post
+              }
 
   login() {
 
-    this.authService.login()
+    this.authService.login(this.idUsuarioLogueado)
       .subscribe( resp => {
-        console.log(resp);
       })
     //this.router.navigate(['auth/registro'])
   }
@@ -42,28 +50,26 @@ export class LoginComponent implements OnInit {
 
   /** Submit o envío del form */
   submit() {
-    console.log('resul', this.form.value.username)
     if (this.form.valid && this.form.touched) {
-      console.log('entró al login')
       this.error = '';
       this.submitEM.emit(this.form.value);
   
-      Swal.fire(
-        'Exito',
-        'inicio correcto!',
-        'success'
-      )
+      
       /** Método login con autenticación */
 
-      this.authService.login()
-      .subscribe( resp => {
-        console.log(resp);
+      if(this.valor == 1){
+        this.validarConductor();
+      }
 
-        if (resp.idUsuario) {
-          this.router.navigate(['hdi/'])
-        }
+      if(this.valor == 2){
+        this.validarUsuario();
+      }
 
-      })
+      
+
+
+
+      
 
       /** Te envía a la ventana Home del usuario */
 
@@ -74,11 +80,7 @@ export class LoginComponent implements OnInit {
 
       this.form.reset();
     } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Error al iniciar sesión!'
-      })
+      
       this.error = 'Usuario o contraseña inválido';
     }
   }
@@ -96,6 +98,87 @@ export class LoginComponent implements OnInit {
     console.log('changed', event && event.value);
   }
 
+  validarUsuario(){
+    var val={
+      NombreUsuario:this.form.value.NombreUsuario,
+      Contrasenia:this.form.value.Contrasenia
+    };
+
+
+    this.http.post(environment.API_URL+'loginusuario', val)
+    .subscribe((res: any)=>{
+      alert(res.toString());
+      /** Regresa el id del usuario para usar de parametro en authService.login() */
+      this.idUsuarioLogueado = res['idUsuario'];
+
+    if(res['idUsuario'] != undefined){
+      this.authService.login(this.idUsuarioLogueado.toString())
+      .subscribe( resp => {
+
+        if (resp.idUsuario) {
+          this.router.navigate(['hdi/'])
+        }
+
+
+      })
+      Swal.fire(
+        'Exito',
+        'inicio correcto!',
+        'success'
+      )
+    }
+    else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Error al iniciar sesión!'
+      })
+    }
+
+      
+    });
+  }
+
+  validarConductor(){
+    var val={
+      Telefono:this.form.value.Telefono,
+      Contrasenia:this.form.value.Contrasenia
+    };
+
+
+    this.http.post(environment.API_URL+'loginconductor', val)
+    .subscribe((res: any)=>{
+      alert(res.toString());
+      /** Regresa el id del usuario para usar de parametro en authService.login() */
+      this.idUsuarioLogueado = res['idUsuario'];
+
+    if(res['idUsuario'] != undefined){
+      this.authService.login(this.idUsuarioLogueado.toString())
+      .subscribe( resp => {
+
+        if (resp.idUsuario) {
+          this.router.navigate(['hdi/'])
+        }
+
+
+      })
+      Swal.fire(
+        'Exito',
+        'inicio correcto!',
+        'success'
+      )
+    }
+    else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Error al iniciar sesión!'
+      })
+    }
+
+      
+    });
+  }
 
 
   @Output() submitEM = new EventEmitter();
