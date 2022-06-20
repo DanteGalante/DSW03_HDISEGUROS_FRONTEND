@@ -20,7 +20,8 @@ export class RegistroComponent implements OnInit {
     FechaNacimiento: new FormControl('', [Validators.required]),
     Contrasenia: new FormControl('', [Validators.required]),
     Telefono: new FormControl('', [Validators.required]),
-    NumeroLicencia: new FormControl('', [Validators.required])
+    NumeroLicencia: new FormControl('', [Validators.required]),
+    idTipoUsuario: new FormControl('', [Validators.nullValidator])
   });
 
   constructor(private router: Router, private http:HttpClient) { 
