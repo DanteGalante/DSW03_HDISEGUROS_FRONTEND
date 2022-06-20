@@ -1,3 +1,45 @@
-table {
+body {
+    height: fit-content;
     width: 80%;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+}
+
+#tabla, #guardar, h2{
+    width: 100;
+}
+
+#tabla {
+    margin-bottom: 1%;
+}
+
+#guardar {
+    text-align: right;    
+}
+
+.mat-row:hover .mat-cell {
+    border-color: currentColor;
+}
+
+.mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    h2 {
+        font-size: medium;
+    }
+
+    td {
+        font-size: 10px;
+    }
+
+    #conductor {
+        display: none;
+    }
 }
