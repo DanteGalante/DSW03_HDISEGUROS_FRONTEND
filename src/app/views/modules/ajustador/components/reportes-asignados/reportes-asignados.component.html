@@ -6,40 +6,46 @@
     Lista de reportes de siniestros asignados
 </h1>
 
-<table class="table table-striped">
-  <thead>
-      <tr>
-          <th>
-            idReporteSiniestro
-          </th>
-          <th>
-            Latitud
-          </th>
-          <th>
-            Longitud
-          </th>
-          <th>
-            idVehiculo
-          </th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor="let rep of reportes">
-          <td>{{rep.idReporteSiniestro}}</td>
-          <td>{{rep.Latitud}}</td>
-          <td>{{rep.Longitud}}</td>
-          <td>{{rep.idVehiculo}}</td>
-      </tr>
-  </tbody>
-  </table>
-
-  <div class="button">
-    <button mat-raised-button color="primary" type="button" class="centrar">Dictarminar</button>
-
+<div class="contenido">
+  <table class="table">
+    <thead>
+        <tr>
+            <th>
+              idReporteSiniestro
+            </th>
+            <th>
+              Fecha de reporte
+            </th>
+            <th>
+              Latitud
+            </th>
+            <th>
+              Longitud
+            </th>
+            <th>
+              Estatus
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rep of reportes; let i=index;" (click)="RowSelected(rep);">
+            <td>{{rep.idReporteSiniestro}}</td>
+            <td>{{rep.fechaReporte}}</td>
+            <td>{{rep.latitud}}</td>
+            <td>{{rep.longitud}}</td>
+            <td>{{rep.esDictaminado}}</td>
+        </tr>
+    </tbody>
+    </table>
+  
     <div class="button">
-        <button mat-raised-button color="primary" type="button" class="centrar">Cancelar</button>
-    </div>
+      <button mat-raised-button color="primary" type="button" class="centrar"  >Dictarminar</button>
+      <button mat-raised-button color="primary" type="button" class="centrar"  >Cancelar</button>
+  </div>
+
 </div>
+
+
 
 <div class="footer">
   <footer-component></footer-component>

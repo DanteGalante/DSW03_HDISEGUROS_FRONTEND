@@ -26,10 +26,6 @@ export class ReportesAsignadosComponent implements OnInit {
    Latitud="";
    Longitud="";
    idVehiculo=0;
-
-   addClick(){
-
-   }
    
 
   ngOnInit(): void {
@@ -49,6 +45,11 @@ export class ReportesAsignadosComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
+  }
+
+  /** Fila seleccionada */
+  RowSelected(rep:any) {
+    console.log(rep.idReporteSiniestro);
   }
 
 }
