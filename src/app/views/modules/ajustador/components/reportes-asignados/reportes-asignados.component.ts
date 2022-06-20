@@ -3,6 +3,7 @@ import { Component,AfterViewInit, ViewChild, OnInit } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 
@@ -14,9 +15,11 @@ import { environment } from 'src/environments/environment';
 })
 export class ReportesAsignadosComponent implements OnInit {
 
+  public reporteSeleccionado: any;
+
 
   constructor(private http:HttpClient,
-              ) {
+    private router: Router) {
 
    }
 
@@ -40,6 +43,10 @@ export class ReportesAsignadosComponent implements OnInit {
     );
   }
 
+  get idReporteSeleccionado():any {
+    return this.reporteSeleccionado;
+  }
+
   ngAfterViewInit() {
   }
 
@@ -50,6 +57,16 @@ export class ReportesAsignadosComponent implements OnInit {
   /** Fila seleccionada */
   RowSelected(rep:any) {
     console.log(rep.idReporteSiniestro);
+    this.reporteSeleccionado = rep.idReporteSiniestro;
+    localStorage.setItem('idReporteSiniestro', this.reporteSeleccionado)
+  }
+
+  DictaminarReporte() {
+    this.router.navigate(["hdi/ajustador/dictaminarreporte"]);
+  }
+
+  RegresarHome() {
+    this.router.navigate(["hdi"]);
   }
 
 }

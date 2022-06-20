@@ -30,7 +30,7 @@ export class AuthService {
       return of(false);
     }
 
-    return this.http.get<Auth>(`${ this.baseUrl }ajustadores/4`)
+    return this.http.get<Auth>(`${ this.baseUrl }usuarios/4`)
             .pipe(
               map(auth => {
                 /** Se guarda la información del usuario autenticado */
@@ -53,7 +53,7 @@ export class AuthService {
                   tap( auth => this._authGetUsuario)
                 )
      */
-    return this.http.get<Auth>(`${ this.baseUrl }ajustadores/4`)
+    return this.http.get<Auth>(`${ this.baseUrl }usuarios/4`)
                 .pipe(
                   tap( auth => this._auth = auth ),
                   tap( auth => localStorage.setItem('idUsuario', auth.idUsuario)),
