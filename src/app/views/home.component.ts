@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router,
     private authService: AuthService) { 
-    //TODO Esta linea se agrego para probar que funcionaba el switch
     
     this.rol = this.auth.idTipoUsuario
     console.log(this.auth.idTipoUsuario)

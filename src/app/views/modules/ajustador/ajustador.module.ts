@@ -7,6 +7,8 @@ import { DictaminarReporteComponent } from './components/dictaminar-reporte/dict
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from 'src/app/shared/angular-material.module';
 import { ReportesAsignadosComponent } from './components/reportes-asignados/reportes-asignados.component';
+import { AuthenticationModule } from 'src/app/authentication/authentication.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -19,10 +21,13 @@ import { ReportesAsignadosComponent } from './components/reportes-asignados/repo
     CommonModule,
     AjustadorRoutingModule,
     AngularMaterialModule,
-    ReactiveFormsModule
+    SharedModule
+    
   ],
   exports: [
-    HomeAjustadorComponent
+    HomeAjustadorComponent,
+    DictaminarReporteComponent,
+    ReportesAsignadosComponent
   ]
 })
 export class AjustadorModule { }

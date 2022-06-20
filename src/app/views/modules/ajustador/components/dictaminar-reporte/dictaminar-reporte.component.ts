@@ -22,7 +22,6 @@ export class DictaminarReporteComponent implements OnInit {
   submit() {
     console.log('resul', this.form.value)
     if (this.form.valid && this.form.touched) {
-      console.log('entro login')
       this.error = '';
       this.submitEM.emit(this.form.value);
       this.form.reset();

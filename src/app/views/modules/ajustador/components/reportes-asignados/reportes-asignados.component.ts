@@ -15,7 +15,8 @@ import { environment } from 'src/environments/environment';
 export class ReportesAsignadosComponent implements OnInit {
 
 
-  constructor(private http:HttpClient) {
+  constructor(private http:HttpClient,
+              ) {
 
    }
 

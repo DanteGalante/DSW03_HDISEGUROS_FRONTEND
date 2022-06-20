@@ -9,16 +9,14 @@ const routes: Routes = [
   {
     path: '',
     component: HomeAjustadorComponent,
-    children: [
-      {
-        path: 'dictaminarreporte',
-        component: DictaminarReporteComponent
-      },
-      {
-        path: 'reportesasignados',
-        component: ReportesAsignadosComponent
-      }
-    ]    
+  },
+  {
+    path: 'dictaminarreporte',
+    component: DictaminarReporteComponent,
+  },
+  {
+    path: 'reportesasignados',
+    component: ReportesAsignadosComponent,
   }
 ];
 

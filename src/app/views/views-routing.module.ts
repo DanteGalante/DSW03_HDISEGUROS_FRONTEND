@@ -16,6 +16,14 @@ const routes: Routes = [
         loadChildren: () => import('./modules/ejecutivo/ejecutivo.module').then(m => m.EjecutivoModule)
       },
       {
+        path: 'ajustador',
+        loadChildren: () => import('./modules/ajustador/ajustador.module').then(m => m.AjustadorModule)
+      },
+      {
+        path: 'conductor',
+        loadChildren: () => import('./modules/conductor/conductor.module').then(m => m.ConductorModule)
+      },
+      {
         path: '**',
         component: HomeComponent
       }

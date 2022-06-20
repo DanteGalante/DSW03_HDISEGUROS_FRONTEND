@@ -11,6 +11,7 @@ import { AjustadorModule } from './modules/ajustador/ajustador.module';
 import { ConductorModule } from './modules/conductor/conductor.module';
 import { EjecutivoModule } from './modules/ejecutivo/ejecutivo.module';
 import { AuthenticationModule } from '../authentication/authentication.module';
+import { AuthenticationRoutingModule } from '../authentication/authentication-routing.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AuthenticationModule } from '../authentication/authentication.module';
     AjustadorModule,
     ConductorModule,
     EjecutivoModule,
-    AuthenticationModule
+    AuthenticationModule,
+    AuthenticationRoutingModule
   ],
 })
 export class ViewsModule { }
